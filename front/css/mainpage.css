@@ -1,0 +1,99 @@
+@import url('./common.css'); 
+
+body, html, div, p, h2{ margin: 0 auto; padding: 0 auto; border: 0; z-index: 0;}
+#mainpage {width: 100%; height: 100vh; max-width:780px;  }
+#mainpage .inner-div {
+    width: 100%; 
+    margin: 0 auto; 
+    height: 100%; 
+    display: flex;  
+    align-items: center; 
+    justify-content: center; 
+    flex-direction:column; 
+    justify-content: flex-start; 
+}
+
+#mainpage .inner-div .main-div {
+    width: 100%;
+    height: 100%;
+}
+#mainpage .inner-div .main-div #Quecontent {
+    /* padding-top: 1rem; */
+    height: 20%;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#mainpage .inner-div .main-div #Quecontent h2 {
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+#mainpage .inner-div .main-div #content-box {
+    width: 80%;
+    height: 33%;
+    display: flex; 
+    align-items: center;
+    background-color: #f9d4df;
+    border-radius: 2rem;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 2.5rem
+;
+}
+#mainpage .inner-div .main-div #content-box p {
+    padding: 3rem;
+}
+
+
+#mainpage .inner-div .main-div .select {
+    width:80%;
+    height: 30%;
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 7%;
+}
+#mainpage .inner-div .main-div .select .ok,#mainpage .inner-div .main-div .select .no {
+    text-align: center;
+    width: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+#mainpage .inner-div .main-div .select .ok{
+    border-right: 0.2rem solid #f9d4df;
+}
+#mainpage .inner-div .main-div .select .ok, #mainpage .inner-div .main-div .select .no {
+    padding-top: 2rem;
+}
+#mainpage .inner-div .main-div .select .ok .okimg {
+    background-image: url("../img/3099346_woman_gesturing_no_icon.png");
+    background-position: center; 
+    background-repeat: no-repeat;
+
+    margin-top: 2rem;
+    width: 50%;
+    height: 50%;
+}
+#mainpage .inner-div .main-div .select .no .noimg {
+    background-image: url("../img/3099348_ok_man_gesturing_icon.png");
+    background-position: center; 
+    background-repeat: no-repeat;
+    margin-top: 2rem;
+    width: 50%;
+    height: 50%;;
+}
+
+#mainpage .inner-div .inner-footer {
+    font-family: 'GapyeongWave';
+    width: 100%;
+    height: 7rem;
+    background-color: #F8436C;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
