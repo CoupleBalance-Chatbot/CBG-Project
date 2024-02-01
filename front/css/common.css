@@ -77,6 +77,16 @@
     color: white;
 }
 
+.inner-header .xi-home-o {
+    width: 8%;
+    height: 3rem;
+    line-height: 3rem;
+    margin: 1rem;
+    font-size: 2.5rem;
+    text-align: center;
+    color: white;
+}
+
 .inner-div .main-div {
     font-family:'SEBANG_Gothic';
     font-weight: 400;
