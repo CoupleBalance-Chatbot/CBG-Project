@@ -18,8 +18,6 @@ export async function getAll() {
 
 
 
-
-
 // _id 값 가져오는 함수
 function mapOptionalQuestion(question){
     return question? {...question, id: question._id.toString()} : question;

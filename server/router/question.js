@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/getAll', questionController.questionAll)
 
 // 랜덤 질문 가져오기
-router.get('/random', questionController.randomQuestion)
+router.get('/random/:id', questionController.randomQuestion)
 
 
 export default router
