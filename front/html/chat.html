@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat-Page</title>
-    <link rel="stylesheet" href="../css/chat.css">
     <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/chat.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 </head>
 <body>
-    <div class="inner-header">
-        <i class="xi-arrow-left" id="back"></i>
-        <div class="Qlist" id="list">다른 질문 선택하기</div>
-    </div>
-    <div class="inner-div">        
-        <div class="main-div"> 
-            <div class="chatting">
+    <div class="main">  
+        <header class="gapy">
+            <i class="xi-arrow-left" id="back"></i>
+            <div class="Qlist" id="list">다른 질문 선택하기</div>
+        </header>      
+        <div class="container"> 
+            <div id="chatting" class="chatting">
                 <!--이부분은 나중에 js로 알아서 생성되게 바꾸기-->
                 <div class="chatbot">
                     <div class="profile">
@@ -61,75 +61,15 @@
                 <div class="user">
                     <div class="contentU">아니 한 손으로 젓가락질 하는데 불편해보이면 도와주는게 맞지</div>
                 </div>
-
-                <div class="chatbot">
-                    <div class="profile">
-                        <div class="imgdiv">
-                            <img src="../img/roni.png" alt="roni" class="imgpro">
-                        </div>
-                    </div>
-                    <div class="chatbox">
-                        <div class="name">로니</div>
-                        <div class="contentC">사람이라면 혼자 깻잎은 뗄 수 있어</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="contentU">아니 한 손으로 젓가락질 하는데 불편해보이면 도와주는게 맞지</div>
-                </div>
-
-                <div class="chatbot">
-                    <div class="profile">
-                        <div class="imgdiv">
-                            <img src="../img/roni.png" alt="roni" class="imgpro">
-                        </div>
-                    </div>
-                    <div class="chatbox">
-                        <div class="name">로니</div>
-                        <div class="contentC">사람이라면 혼자 깻잎은 뗄 수 있어</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="contentU">아니 한 손으로 젓가락질 하는데 불편해보이면 도와주는게 맞지</div>
-                </div>
-
-                <div class="chatbot">
-                    <div class="profile">
-                        <div class="imgdiv">
-                            <img src="../img/roni.png" alt="roni" class="imgpro">
-                        </div>
-                    </div>
-                    <div class="chatbox">
-                        <div class="name">로니</div>
-                        <div class="contentC">사람이라면 혼자 깻잎은 뗄 수 있어</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="contentU">아니 한 손으로 젓가락질 하는데 불편해보이면 도와주는게 맞지</div>
-                </div>
-
-                <div class="chatbot">
-                    <div class="profile">
-                        <div class="imgdiv">
-                            <img src="../img/roni.png" alt="roni" class="imgpro">
-                        </div>
-                    </div>
-                    <div class="chatbox">
-                        <div class="name">로니</div>
-                        <div class="contentC">사람이라면 혼자 깻잎은 뗄 수 있어</div>
-                    </div>
-                </div>
-                <div class="user">
-                    <div class="contentU">아니 한 손으로 젓가락질 하는데 불편해보이면 도와주는게 맞지요</div>
-                </div>
-
-                
             </div>
         </div>
-        <div class="footer">
-            <textarea name="text" id="input" class="inputbox"></textarea>
-            <!-- <input type="text" class="inputbox" id="input"> -->
-            <div class="xi-send" id="send"></div>
-        </div>
+        <footer>
+            <div class="footer">
+                <textarea name="text" id="input" class="inputbox"></textarea>
+                <!-- <input type="text" class="inputbox" id="input"> -->
+                <div class="xi-send" id="send"></div>
+            </div>
+        </footer>
     </div>
     <script src="../js/chat.js"></script>
 </body>
