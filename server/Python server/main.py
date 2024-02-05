@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI,Request
 from dotenv import load_dotenv
 import os
 # mongoDB랑 연결시 필요한 모듈
@@ -79,4 +79,13 @@ async def get_one(id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"내부 서버 오류: {str(e)}")
 
+@app.post("/chat")
+async def get_question(request: Request):
+    try:
+        # 입력값 가져오기
+        data = await request.json()
+        # 반환된 값 보내기
+        return 'yes'
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"내부 서버 오류: {str(e)}")
 
