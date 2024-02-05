@@ -25,6 +25,38 @@ send.addEventListener('click', (e)=> {
         chatting.scrollTop = chatting.scrollHeight;
         document.getElementById('input').value = '';
 
+        const formData = {
+            input: input
+        }
+
+        const jsonData = JSON.stringify(formData)
+
+        fetch('http://127.0.0.1:8000/chat', {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: jsonData
+        })
+        .then(res => res.json())
+        .then(data => {
+            const chatting = document.getElementById('chatting');
+            const chatbot = document.createElement('div');
+            chatbot.className = 'chatbot';
+            chatbot.innerHTML = `
+            <div class="profile">
+                <div class="imgdiv">
+                    <img src="../images/boy.png" alt="roni" class="imgpro">
+                </div>
+            </div>
+            <div class="chatbox">
+                <div class="name">토니</div>
+                <div class="contentC">${data}</div>
+            </div>`;
+            chatting.appendChild(chatbot);
+            chatting.scrollTop = chatting.scrollHeight;
+        })
+
         // const formData = {
         //     input: input
         // }
