@@ -40,8 +40,11 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.container').addEventListener('click', function(event) {
         const targetId = event.target.closest('li')?.id;
 
-        if (targetId === 'ok' || targetId === 'no') {
-            window.location.href = "../chat/chat.html";
+        if (targetId === 'ok') {
+            window.location.href = "../chat/chat.html?dataId="+ encodeURIComponent('ok');
+        }
+        else if (targetId === 'no'){
+            window.location.href = "../chat/chat.html?dataId="+ encodeURIComponent('no')
         }
     });
 });
