@@ -29,9 +29,13 @@ send.addEventListener('click', (e)=> {
             input: input
         }
 
+        var queryString = window.location.search;
+        var params = new URLSearchParams(queryString);
+        var dataId = params.get('dataId');
+
         const jsonData = JSON.stringify(formData)
 
-        fetch('http://127.0.0.1:8000/chat', {
+        fetch(`http://127.0.0.1:8000/chat/${dataId}`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
