@@ -35,7 +35,34 @@ send.addEventListener('click', (e)=> {
 
         const jsonData = JSON.stringify(formData)
 
-        fetch(`http://127.0.0.1:8000/chat/${dataId}`, {
+        if(dataId === 'no'){
+            fetch(`http://127.0.0.1:8000/chat_no`, {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: jsonData
+            })
+            .then(res => res.json())
+            .then(data => {
+                const chatting = document.getElementById('chatting');
+                const chatbot = document.createElement('div');
+                chatbot.className = 'chatbot';
+                chatbot.innerHTML = `
+                <div class="profile">
+                    <div class="imgdiv">
+                        <img src="../images/boy.png" alt="roni" class="imgpro">
+                    </div>
+                </div>
+                <div class="chatbox">
+                    <div class="name">토니</div>
+                    <div class="contentC">${data.prediction}</div>
+                </div>`;
+                chatting.appendChild(chatbot);
+                chatting.scrollTop = chatting.scrollHeight;
+            })
+        }else if(dataId === 'ok'){
+            fetch(`http://127.0.0.1:8000/chat_ok`, {
             method: 'post',
             headers: {
                 'Content-Type': 'application/json'
@@ -55,11 +82,14 @@ send.addEventListener('click', (e)=> {
             </div>
             <div class="chatbox">
                 <div class="name">토니</div>
-                <div class="contentC">${data}</div>
+                <div class="contentC">${data.prediction}</div>
             </div>`;
             chatting.appendChild(chatbot);
             chatting.scrollTop = chatting.scrollHeight;
         })
+        }
+
+        
 
         // const formData = {
         //     input: input
