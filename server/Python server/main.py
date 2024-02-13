@@ -97,9 +97,8 @@ async def get_question(request: Request):
 async def get_question(request: Request):
     try:
         data = await request.json()
-        print(data)
-        # result = model_close(data)
-        # # 반환된 값 보내기
-        # return JSONResponse({'prediction': result}, status_code=200)
+        result = model_close(data['input'])
+        # 반환된 값 보내기
+        return JSONResponse({'prediction': result}, status_code=200)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"내부 서버 오류: {str(e)}")
