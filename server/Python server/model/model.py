@@ -17,7 +17,7 @@ model_open_obj.load_state_dict(torch.load("./model/model_ok.pth", map_location=t
 model_open_obj.eval()
 
 model_close_obj = GPT2LMHeadModel.from_pretrained("skt/kogpt2-base-v2")
-model_close_obj.load_state_dict(torch.load("./model/model_ok.pth", map_location=torch.device('cpu')))
+model_close_obj.load_state_dict(torch.load("./model/model_no.pth", map_location=torch.device('cpu')))
 model_close_obj.eval()
 
 def model_open(data):
