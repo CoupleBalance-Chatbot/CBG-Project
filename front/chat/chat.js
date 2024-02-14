@@ -11,6 +11,9 @@ list.addEventListener('click', (e)=>{
 var queryString = window.location.search;
 var params = new URLSearchParams(queryString);
 var dataId = params.get('dataId');
+var questionId = params.get('questionId')
+console.log(dataId)
+console.log(questionId)
 make_chatbot(dataId)
 
 function make_chatbot(dataId){
@@ -76,15 +79,16 @@ send.addEventListener('click', (e)=> {
             chatting.scrollTop = chatting.scrollHeight;
             document.getElementById('input').value = '';
     
-            const formData = {
-                input: input
-            }
+            // const formData = {
+            //     input: input
+            // }
     
             var queryString = window.location.search;
             var params = new URLSearchParams(queryString);
             var dataId = params.get('dataId');
+            var questionId = params.get('questionId')
     
-            const jsonData = JSON.stringify(formData)
+            // const jsonData = JSON.stringify(formData)
     
             if(dataId === 'no'){
                 fetch(`http://127.0.0.1:8000/chat_no`, {
@@ -92,7 +96,10 @@ send.addEventListener('click', (e)=> {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: jsonData
+                    body: JSON.stringify({
+                        "input": input,
+                        "questionId": questionId
+                    })
                 })
                 .then(res => res.json())
                 .then(data => {
@@ -118,7 +125,10 @@ send.addEventListener('click', (e)=> {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: jsonData
+                body: JSON.stringify({
+                    "input": input,
+                    "questionId": questionId
+                })
             })
             .then(res => res.json())
             .then(data => {
