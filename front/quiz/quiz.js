@@ -41,20 +41,23 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetId = event.target.closest('li')?.id;
 
         if (targetId === 'ok') {
-            window.location.href = "../chat/chat.html?dataId="+ encodeURIComponent('ok');
+            window.location.href = `../chat/chat.html?dataId=${encodeURIComponent('ok')}&questionId=${encodeURIComponent(questionId)}`;  
         }
         else if (targetId === 'no'){
-            window.location.href = "../chat/chat.html?dataId="+ encodeURIComponent('no')
+            window.location.href = `../chat/chat.html?dataId=${encodeURIComponent('no')}&questionId=${encodeURIComponent(questionId)}`; 
         }
     });
 });
+
+
+let questionId;
 
 function updateUI(data, dataId) {
     const listWrap = document.querySelector('.container');
     let html = '';
 
     if(dataId === 'random'){
-        data_que = data.question
+        data_que = data.question;
         var startIndex = data_que.indexOf('된다? 안된다?');
         var start = data_que.slice(0, startIndex);
         var end = data_que.substring(startIndex);
@@ -92,10 +95,11 @@ function updateUI(data, dataId) {
             `;
         }
         listWrap.innerHTML = html;
+        questionId = data._id;
     }
     
     else{
-        data_que = data[0].question
+        data_que = data[0].question;
         var startIndex = data_que.indexOf('된다? 안된다?');
         var start = data_que.slice(0, startIndex);
         var end = data_que.substring(startIndex);
@@ -133,5 +137,7 @@ function updateUI(data, dataId) {
             `;
         }
         listWrap.innerHTML = html;
+        questionId = data[0]._id; 
     }
 }
+
