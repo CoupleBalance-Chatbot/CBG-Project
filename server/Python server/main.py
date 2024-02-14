@@ -87,8 +87,17 @@ async def get_one(id: str):
 async def get_question(request: Request):
     try:
         data = await request.json()
-        result = model_open(data['input'])
-        # 반환된 값 보내기
+
+        collection = db["question"]
+        all_questions = await collection.find({}).to_list(length=None)
+
+        result = [question for question in all_questions if str(question['_id']) == data['questionId']]
+
+        for i in result:
+            i['_id'] = str(i['_id'])
+
+        result = model_open(data['input'], result[0]['keywords'])
+
         return JSONResponse({'prediction': result}, status_code=200)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"내부 서버 오류: {str(e)}")
@@ -97,7 +106,17 @@ async def get_question(request: Request):
 async def get_question(request: Request):
     try:
         data = await request.json()
-        result = model_close(data['input'])
+
+        collection = db["question"]
+        all_questions = await collection.find({}).to_list(length=None)
+
+        result = [question for question in all_questions if str(question['_id']) == data['questionId']]
+
+        for i in result:
+            i['_id'] = str(i['_id'])
+        text = result[0]['keywords'] + ' ' + data['input']
+
+        result = model_close(data['input'], result[0]['keywords'])
         # 반환된 값 보내기
         return JSONResponse({'prediction': result}, status_code=200)
     except Exception as e:
